@@ -13,11 +13,14 @@ func _process(_delta: float) -> void:
 
 
 func game_over() -> void:
+	$Music.stop()
+	$DeathSound.play()
 	$ScoreTimer.stop()
 	$MobTimer.stop()
 	$HUD.show_game_over()
 	
 func new_game():
+	$Music.play()
 	score = 0
 	$Player.start($StartPosition.position)
 	$StartTimer.start()
