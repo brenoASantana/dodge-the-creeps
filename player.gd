@@ -10,10 +10,9 @@ func _ready() -> void:
 	screen_size = get_viewport_rect().size
 	hide()
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	var velocity = Vector2.ZERO # the player's movement vector
+	var velocity = Vector2.ZERO # Vetor de movimento do player
 	if Input.is_action_pressed("move_right"):
 		velocity.x += 1
 	if Input.is_action_pressed("move_left"):
@@ -43,7 +42,8 @@ func _process(delta: float) -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
-	hide() # player disappears after being hit
+	print("acertou")
+	hide() # Player desaparece após ser atingido
 	hit.emit()
 	# Must be deferred as we can't change physics properties on a physics callback.
 	$CollisionShape2D.set_deferred("disabled", true)
@@ -51,5 +51,4 @@ func _on_body_entered(body: Node2D) -> void:
 func start(pos):
 	position = pos
 	show()
-	$CollisionShape2D.disabled = true
-	
+	$CollisionShape2D.disabled = false

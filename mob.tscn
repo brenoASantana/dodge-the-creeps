@@ -44,6 +44,9 @@ animations = [{
 "speed": 3.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_1qmh0"]
+radius = 41.0
+
 [node name="Mob" type="RigidBody2D" unique_id=1849379009]
 collision_mask = 0
 gravity_scale = 0.0
@@ -56,6 +59,7 @@ sprite_frames = SubResource("SpriteFrames_fpuc0")
 animation = &"fly"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1926640624]
+shape = SubResource("CircleShape2D_1qmh0")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=717469102]
 
